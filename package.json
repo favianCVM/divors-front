@@ -49,13 +49,9 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "serve -s build",
-    "dev": "craco start",
+    "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
-    "build:docker": "docker-compose -f docker-compose.dev.yml build --no-cache",
-    "dev:docker": "docker-compose -f docker-compose.dev.yml up",
-    "down:docker": "docker-compose -f docker-compose.dev.yml down --remove-orphans"
+    "test": "craco test"
   },
   "eslintConfig": {
     "extends": [
