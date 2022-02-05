@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: sait-front-app
+    image: sait-front-app
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      target: development
+    env_file: 
+      - .env
+    volumes:
+      - ./src:/app/src
+      - ./src:/app/src/app/node_modules
+    ports:
+      - 3002:3000
