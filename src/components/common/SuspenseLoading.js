@@ -6,7 +6,11 @@ import { LoaderStyling } from '@utils/commonStyles';
 const SuspenseLoading = () => (
 	<Center flexDir="column" className="min-h-screen">
 		<Center>
-			<HashLoader color={LoaderStyling.color} loading={true} />
+			<HashLoader
+				color={LoaderStyling.color}
+				loading={true}
+				speedMultiplier={1.8}
+			/>
 		</Center>
 	</Center>
 );

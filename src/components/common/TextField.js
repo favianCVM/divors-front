@@ -38,7 +38,7 @@ export default function TextField({
 				<FormControl
 					id={id}
 					_focus={_focus}
-          boxShadow="none"
+					boxShadow="none"
 					isInvalid={getIn(form.errors, name) && getIn(form.touched, name)}
 				>
 					{label && (
@@ -79,8 +79,8 @@ export default function TextField({
 									variant="solid"
 									size="sm"
 									minH="full"
-                  borderTopLeftRadius="none"
-                  borderBottomLeftRadius="none"
+									borderTopLeftRadius="none"
+									borderBottomLeftRadius="none"
 									onClick={() => setShowPassword(!showPassword)}
 								>
 									<FaEye />

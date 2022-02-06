@@ -41,8 +41,8 @@ const SubmitFormButton = ({
 			justify={'space-between'}
 			spacing={2}
 		>
-			<Checkbox>Remember me</Checkbox>
-			<Link color={'blue.400'}>Forgot password?</Link>
+			{/* <Checkbox>Recuerdame</Checkbox> */}
+			<Link color={'blue.400'}>Olvido su contraseña?</Link>
 		</Stack>
 	);
 	return (

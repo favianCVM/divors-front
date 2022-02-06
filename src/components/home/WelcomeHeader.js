@@ -11,7 +11,7 @@ import {
 	Link
 } from '@chakra-ui/react';
 
-export default function CompanyHeader() {
+export default function WelcomeHeader() {
 	return (
 		<>
 			<Container maxW={'3xl'}>
@@ -26,7 +26,7 @@ export default function CompanyHeader() {
 						fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
 						lineHeight={'110%'}
 					>
-						lorem ipsum
+						Divors
 						<br />
 						<Text as={'span'} color={'green.400'}>
 							lorem ipsum
@@ -51,6 +51,7 @@ export default function CompanyHeader() {
 						position={'relative'}
 					>
 						<Button
+							textColor={useColorModeValue('white', 'green')}
 							colorScheme={'green'}
 							bg={'green.400'}
 							rounded={'full'}
@@ -58,8 +59,10 @@ export default function CompanyHeader() {
 							_hover={{
 								bg: 'green.500'
 							}}
+							as="a"
+							href="/login"
 						>
-							<Link href="/2">log in</Link>
+							Entrar ahora
 						</Button>
 						<Button variant={'link'} colorScheme={'blue'} size={'sm'}>
 							Learn more

@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom';
 import 'styles/index.scss';
 import App from './App';
 import { ChakraProvider } from '@chakra-ui/react';
-import {
-	RecoilRoot,
-} from 'recoil';
+
+import configureStore from './state/index';
+import { Provider } from 'react-redux';
 
 ReactDOM.render(
 	<ChakraProvider>
-		<RecoilRoot>
+		<Provider store={configureStore()}>
 			<App />
-		</RecoilRoot>
+		</Provider>
 	</ChakraProvider>,
 	document.getElementById('root')
 );

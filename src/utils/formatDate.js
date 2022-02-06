@@ -17,28 +17,28 @@
 // export default formatDate;
 
 const months = {
-  1: 'Enero',
-  2: 'Febrero',
-  3: 'Marzo',
-  4: 'Abril',
-  5: 'Mayo',
-  6: 'Junio',
-  7: 'Julio',
-  8: 'Agosto',
-  9: 'Septiembre',
-  10: 'Octubre',
-  11: 'Noviembre',
-  12: 'Diciembre',
-}
+	1: 'Enero',
+	2: 'Febrero',
+	3: 'Marzo',
+	4: 'Abril',
+	5: 'Mayo',
+	6: 'Junio',
+	7: 'Julio',
+	8: 'Agosto',
+	9: 'Septiembre',
+	10: 'Octubre',
+	11: 'Noviembre',
+	12: 'Diciembre'
+};
 
 const formatDate = (date, natural = false) => {
-  const dateFormat = new Date(date);
-  const dd = dateFormat.getDate();
-  const mm = dateFormat.getMonth() + 1; //January is 0!
-  const yyyy = dateFormat.getFullYear();
+	const dateFormat = new Date(date);
+	const dd = dateFormat.getDate();
+	const mm = dateFormat.getMonth() + 1; //January is 0!
+	const yyyy = dateFormat.getFullYear();
 
-  if (natural) return `${dd} de ${months[mm]} del ${yyyy}`;
-  return `${dd}/${mm}/${yyyy}`;
-}
+	if (natural) return `${dd} de ${months[mm]} del ${yyyy}`;
+	return `${dd}/${mm}/${yyyy}`;
+};
 
 export default formatDate;
