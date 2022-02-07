@@ -73,7 +73,7 @@ export default function TextField({
 						{type === 'password' && (
 							<InputRightAddon p="0">
 								<Button
-									bg="green.400"
+									bg={showPassword ? "blue.400" : "green.400"}
 									borderRadius="md"
 									colorScheme="blue"
 									variant="solid"

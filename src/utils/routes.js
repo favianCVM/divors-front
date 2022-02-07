@@ -1,7 +1,12 @@
 const product = {
 	to: '/product',
-	as: '/actualizacion-incidencia',
+	as: '/productos',
 	icon: null,
-	title: null,
+	name: "productos",
 	component: null
 };
+
+
+export default {
+	admin: [product]
+}

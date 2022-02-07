@@ -2,18 +2,10 @@ import { LOG_OUT, SIGN_IN } from '../actionTypes';
 import requests from '@utils/requests';
 import formatFormData from '@utils/formatFormData';
 
-export function logOut() {
-	return async (dispatch) => {
-		await dispatch({
-			type: LOG_OUT
-		});
-	};
-}
-
-export function signIn(data) {
+export function logIn(data) {
 	return async (dispatch) => {
 		return requests
-			.login(formatFormData(data))
+			.logIn(formatFormData(data))
 			.then(async (r) => {
 				await dispatch({
 					type: SIGN_IN,
@@ -33,6 +25,54 @@ export function signIn(data) {
 					success: false,
 					status: 'error',
 					description: 'Intente de nuevo'
+				};
+			});
+	};
+}
+
+export function logOut() {
+	return async (dispatch) => {
+		return requests
+			.logOut()
+			.then(async (r) => {
+				await dispatch({
+					type: LOG_OUT,
+					payload: {
+						...r.data
+					}
+				});
+
+				return {
+					title: 'Adios',
+					success: true,
+					status: 'success'
+				};
+			})
+			.catch((e) => {
+				return {
+					title: e.response?.data?.message || 'Hubo un problema en el logout.',
+					success: false,
+					status: 'error',
+					description: 'Intente de nuevo'
+				};
+			});
+	};
+}
+
+export function checkSessionState() {
+	return async (dispatch) => {
+		return requests
+			.checkSessionState()
+			.then(async (r) => {
+				return {
+					success: true
+				};
+			})
+			.catch((e) => {
+				return {
+					title: e.response?.data?.message || 'Session caducada.',
+					success: false,
+					status: 'error'
 				};
 			});
 	};

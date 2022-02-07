@@ -8,7 +8,6 @@ import {
 } from 'react-router-dom';
 import Layout from '@components/layout/Layout';
 import { connect } from 'react-redux';
-import routes from '@utils/routes';
 import history from '@utils/history';
 import SuspenseLoading from '@components/common/SuspenseLoading';
 import multiLazy from '@utils/multiLazy';
@@ -25,31 +24,31 @@ const [HomePage, Error404] = multiLazy([
 
 const [LoginPage] = multiLazy([() => import('../pages/auth/Login.js')]);
 
-const AppRouter = ({ isLogged }) => {
+const AppRouter = ({ isLogged = false }) => {
+	const loginRoutes = [
+		<Route path="/iniciar-sesion" component={LoginPage} />,
+		<Route exact path="/login">
+			<Redirect to="/iniciar-sesion" />
+		</Route>
+	];
+
+	const loggedRedirects = [
+		<Redirect from="/iniciar-sesion" to="/" />,
+		<Redirect from="/login" to="/" />
+	];
+
 	return (
-		<React.Suspense fallback={<SuspenseLoading />}>
-			<Router history={history}>
-				<Layout>
-					<Switch>
-						<Route exact path="/" component={HomePage} />
+		<Router history={history}>
+			<Layout>
+				<React.Suspense fallback={<SuspenseLoading />}>
+					<Route exact path="/" component={HomePage} />
 
-						{isLogged ? (
-							<Switch>
-								<Redirect from="/iniciar-sesion" to="/" />
-								<Redirect from="/login" to="/" />
-							</Switch>
-						) : (
-							<Switch>
-								<Redirect from="/login" to="/iniciar-sesion" />
-								<Route path="/iniciar-sesion" component={LoginPage} />
-							</Switch>
-						)}
+					{!isLogged ? loginRoutes : loggedRedirects}
 
-						<Route component={Error404} />
-					</Switch>
-				</Layout>
-			</Router>
-		</React.Suspense>
+					{/* <Route path="*" component={Error404} /> */}
+				</React.Suspense>
+			</Layout>
+		</Router>
 	);
 };
 

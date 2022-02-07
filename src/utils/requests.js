@@ -1,9 +1,13 @@
 import Api from './api';
 
 // user auth
-const login = (data) => Api().post('/auth/login', data);
+const logIn = (data) => Api().post('/auth/login', data);
+const logOut = (data) => Api().get('/auth/logout', data);
+const checkSessionState = () => Api().get('/auth/session-state');
 
 export default {
 	// user auth
-	login
+	logIn,
+	logOut,
+	checkSessionState,
 };

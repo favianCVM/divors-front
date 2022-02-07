@@ -17,7 +17,7 @@ const LoginContainer = ({ actions }) => {
 	const toast = useToast();
 
 	const handleSubmit = async (values) => {
-		let response = await actions.signIn(values);
+		let response = await actions.logIn(values);
 
 		await toast({
 			title: response.title || '',

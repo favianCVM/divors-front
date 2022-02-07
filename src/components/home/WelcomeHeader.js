@@ -13,84 +13,82 @@ import {
 
 export default function WelcomeHeader() {
 	return (
-		<>
-			<Container maxW={'3xl'}>
-				<Stack
-					as={Box}
-					textAlign={'center'}
-					spacing={{ base: 8, md: 14 }}
-					py={{ base: 20, md: 36 }}
+		<Container maxW={'3xl'}>
+			<Stack
+				as={Box}
+				textAlign={'center'}
+				spacing={{ base: 8, md: 14 }}
+				py={{ base: 20, md: 36 }}
+			>
+				<Heading
+					fontWeight={600}
+					fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
+					lineHeight={'110%'}
 				>
-					<Heading
-						fontWeight={600}
-						fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
-						lineHeight={'110%'}
+					Divors
+					<br />
+					<Text as={'span'} color={'green.400'}>
+						lorem ipsum
+					</Text>
+				</Heading>
+				<Text color={'gray.500'}>
+					Lorem Ipsum is simply dummy text of the printing and typesetting
+					industry. Lorem Ipsum has been the industry's standard dummy text ever
+					since the 1500s, when an unknown printer took a galley of type and
+					scrambled it to make a type specimen book. It has survived not only
+					five centuries, but also the leap into electronic typesetting,
+					remaining essentially unchanged. It was popularised in the 1960s with
+					the release of Letraset sheets containing Lorem Ipsum passages, and
+					more recently with desktop publishing software like Aldus PageMaker
+					including versions of Lorem Ipsum.
+				</Text>
+				<Stack
+					direction={'column'}
+					spacing={3}
+					align={'center'}
+					alignSelf={'center'}
+					position={'relative'}
+				>
+					<Button
+						textColor={useColorModeValue('white', 'green')}
+						colorScheme={'green'}
+						bg={'green.400'}
+						rounded={'full'}
+						px={6}
+						_hover={{
+							bg: 'green.500'
+						}}
+						as="a"
+						href="/login"
 					>
-						Divors
-						<br />
-						<Text as={'span'} color={'green.400'}>
+						Entrar ahora
+					</Button>
+					<Button variant={'link'} colorScheme={'blue'} size={'sm'}>
+						Learn more
+					</Button>
+					{/* <Box>
+						<Icon
+							as={Arrow}
+							color={useColorModeValue('gray.800', 'gray.300')}
+							w={71}
+							position={'absolute'}
+							right={-71}
+							top={'10px'}
+						/>
+						<Text
+							fontSize={'lg'}
+							fontFamily={'Caveat'}
+							position={'absolute'}
+							right={'-125px'}
+							top={'-15px'}
+							transform={'rotate(10deg)'}
+						>
 							lorem ipsum
 						</Text>
-					</Heading>
-					<Text color={'gray.500'}>
-						Lorem Ipsum is simply dummy text of the printing and typesetting
-						industry. Lorem Ipsum has been the industry's standard dummy text
-						ever since the 1500s, when an unknown printer took a galley of type
-						and scrambled it to make a type specimen book. It has survived not
-						only five centuries, but also the leap into electronic typesetting,
-						remaining essentially unchanged. It was popularised in the 1960s
-						with the release of Letraset sheets containing Lorem Ipsum passages,
-						and more recently with desktop publishing software like Aldus
-						PageMaker including versions of Lorem Ipsum.
-					</Text>
-					<Stack
-						direction={'column'}
-						spacing={3}
-						align={'center'}
-						alignSelf={'center'}
-						position={'relative'}
-					>
-						<Button
-							textColor={useColorModeValue('white', 'green')}
-							colorScheme={'green'}
-							bg={'green.400'}
-							rounded={'full'}
-							px={6}
-							_hover={{
-								bg: 'green.500'
-							}}
-							as="a"
-							href="/login"
-						>
-							Entrar ahora
-						</Button>
-						<Button variant={'link'} colorScheme={'blue'} size={'sm'}>
-							Learn more
-						</Button>
-						<Box>
-							<Icon
-								as={Arrow}
-								color={useColorModeValue('gray.800', 'gray.300')}
-								w={71}
-								position={'absolute'}
-								right={-71}
-								top={'10px'}
-							/>
-							<Text
-								fontSize={'lg'}
-								fontFamily={'Caveat'}
-								position={'absolute'}
-								right={'-125px'}
-								top={'-15px'}
-								transform={'rotate(10deg)'}
-							>
-								lorem ipsum
-							</Text>
-						</Box>
-					</Stack>
+					</Box> */}
 				</Stack>
-			</Container>
-		</>
+			</Stack>
+		</Container>
 	);
 }
 

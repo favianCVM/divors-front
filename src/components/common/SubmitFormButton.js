@@ -42,7 +42,12 @@ const SubmitFormButton = ({
 			spacing={2}
 		>
 			{/* <Checkbox>Recuerdame</Checkbox> */}
-			<Link color={'blue.400'}>Olvido su contraseña?</Link>
+			<Link href="/renew-password" color={'blue.400'}>
+				Olvido su contraseña?
+			</Link>
+			<Link href="/sign-up" color={'blue.400'}>
+				Registrarse
+			</Link>
 		</Stack>
 	);
 	return (
