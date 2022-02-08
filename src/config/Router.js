@@ -22,13 +22,20 @@ const [HomePage, Error404] = multiLazy([
 
 // common user pages
 
-const [LoginPage] = multiLazy([() => import('../pages/auth/Login.js')]);
+const [LoginPage, SignUpPage] = multiLazy([
+	() => import('../pages/auth/Login.js'),
+	() => import('../pages/auth/SignUp')
+]);
 
 const AppRouter = ({ isLogged = false }) => {
 	const loginRoutes = [
 		<Route path="/iniciar-sesion" component={LoginPage} />,
 		<Route exact path="/login">
 			<Redirect to="/iniciar-sesion" />
+		</Route>,
+		<Route path="/registro" component={SignUpPage} />,
+		<Route exact path="/sign-up">
+			<Redirect to="/registro" />
 		</Route>
 	];
 

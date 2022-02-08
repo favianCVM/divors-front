@@ -46,13 +46,11 @@ const TextareaField = ({
 							{...field}
 						/>
 					</InputGroup>
-					{showError && (
-						<FormHelperText>
-							{field.value && !getIn(form.errors, name)
-								? null
-								: getIn(form.errors, name) || helperText}
-						</FormHelperText>
-					)}
+					<FormHelperText>
+						{getIn(form.errors, name) && getIn(form.touched, name)
+							? form.errors[name]
+							: helperText}
+					</FormHelperText>
 				</FormControl>
 			)}
 		</Field>

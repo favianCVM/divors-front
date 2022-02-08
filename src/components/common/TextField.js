@@ -73,7 +73,7 @@ export default function TextField({
 						{type === 'password' && (
 							<InputRightAddon p="0">
 								<Button
-									bg={showPassword ? "blue.400" : "green.400"}
+									bg={showPassword ? 'green.400' : 'blue.400'}
 									borderRadius="md"
 									colorScheme="blue"
 									variant="solid"
@@ -92,7 +92,11 @@ export default function TextField({
 							<InputRightAddon>{rightChildren}</InputRightAddon>
 						)}
 					</InputGroup>
-					<FormHelperText>{helperText}</FormHelperText>
+					<FormHelperText>
+						{getIn(form.errors, name) && getIn(form.touched, name)
+							? form.errors[name]
+							: helperText}
+					</FormHelperText>
 				</FormControl>
 			)}
 		</Field>

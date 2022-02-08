@@ -16,3 +16,4 @@ export { default as FileField } from './FileField';
 export { default as TableSkeleton } from './TableSkeleton';
 export { default as GoBackButton } from './GoBackButton';
 export { default as FormButton } from './FormButton';
+export { default as TridimentionalButton } from './TridimentionalButton';

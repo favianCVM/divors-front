@@ -1,6 +1,7 @@
 import React from 'react';
 import Router from 'config/Router';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
+import { useColorMode } from '@chakra-ui/react';
 
 import * as actions from '@actions/';
 import { bindActionCreators } from 'redux';
@@ -12,12 +13,18 @@ function App({ actions, isLogged }) {
 			checkSessionState();
 		}
 	}, []);
+	const { colorMode, toggleColorMode } = useColorMode();
 
 	const checkSessionState = async () => {
 		let response = await actions.checkSessionState();
 	};
 
-	return <Router></Router>;
+	return (
+		<>
+			<Router></Router>
+			<button onClick={toggleColorMode}>aver</button>
+		</>
+	);
 }
 
 const mapStateToProps = (state) => ({

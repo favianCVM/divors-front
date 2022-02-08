@@ -1,0 +1,201 @@
+$gray: #e2e8f0;
+$green: #48bb78;
+$dark: #2d3748;
+$darkBorder: #5f6774;
+$darker: #1a202c;
+$errorRed: #e53e3e;
+$darkErrorRed: #f56565;
+
+.react-tel-input {
+	border-color: $gray !important;
+	width: 100% !important;
+
+	.form-control {
+		border-width: 0.1rem !important;
+		border-color: $gray !important;
+		border-radius: 0.35rem !important;
+		padding: 1.3rem 2.9rem !important;
+		width: 100% !important;
+		box-shadow: none !important;
+
+		&:focus + .flag-dropdown {
+			transition: ease 0.2s;
+			box-shadow: 0 0 0 3px $green !important;
+		}
+		&:focus {
+			transition: ease 0.2s;
+
+			box-shadow: 0 0 0 3px $green !important;
+		}
+	}
+
+	.flag-dropdown {
+		border-color: $gray !important;
+		border-width: 0.1rem !important;
+		transition: ease 0.2s !important;
+
+		.selected-flag {
+			height: 100% !important;
+		}
+
+		.country-list {
+			li {
+				&:hover {
+					background-color: $gray !important;
+					transition: ease 0.2s;
+				}
+			}
+		}
+	}
+}
+
+.dark-react-tel-input {
+	background-color: $dark !important;
+	border-color: $darkBorder !important;
+	width: 100% !important;
+
+	.form-control {
+		background-color: $dark !important;
+		border-width: 0.1rem !important;
+		border-color: $darkBorder !important;
+		border-radius: 0.35rem !important;
+		padding: 1.3rem 2.9rem !important;
+		width: 100% !important;
+		box-shadow: none !important;
+
+		&:focus + .flag-dropdown {
+			transition: ease 0.2s;
+			box-shadow: 0 0 0 3px $green !important;
+		}
+		&:focus {
+			transition: ease 0.2s;
+			box-shadow: 0 0 0 3px $green !important;
+		}
+	}
+
+	.flag-dropdown {
+		background-color: $dark !important;
+		border-color: $darkBorder !important;
+		border-width: 0.1rem !important;
+		transition: ease 0.2s !important;
+
+		&:hover {
+			background-color: $darker !important;
+		}
+		&:focus {
+			background-color: $darker !important;
+		}
+
+		.selected-flag {
+			height: 100% !important;
+			background-color: $dark !important;
+
+			&:hover {
+				background-color: $darker !important;
+			}
+			&:focus {
+				background-color: $darker !important;
+			}
+
+			div {
+				&:hover {
+					background-color: $darker !important;
+				}
+				&:focus {
+					background-color: $darker !important;
+				}
+			}
+		}
+
+		.country-list {
+			li {
+				background-color: $dark !important;
+				&:hover {
+					background-color: $darkBorder !important;
+					transition: ease 0.2s;
+				}
+			}
+		}
+	}
+}
+
+.react-tel-input-error {
+	border-color: $gray !important;
+	width: 100% !important;
+
+	.form-control {
+		border-width: 0.1rem !important;
+		border-color: $gray !important;
+		border-radius: 0.35rem !important;
+		padding: 1.3rem 2.9rem !important;
+		width: 100% !important;
+		box-shadow: 0 0 0 2.3px $errorRed !important;
+	}
+
+	.flag-dropdown {
+		border-color: $gray !important;
+		box-shadow: 0 0 0 2.3px $errorRed !important;
+
+		border-width: 0.1rem !important;
+
+		.selected-flag {
+			height: 100% !important;
+		}
+
+		.country-list {
+			li {
+				&:hover {
+					background-color: $gray !important;
+					transition: ease 0.2s;
+				}
+			}
+		}
+	}
+}
+
+.dark-react-tel-input-error {
+	background-color: $dark !important;
+	border-color: $darkBorder !important;
+	width: 100% !important;
+
+	.form-control {
+		background-color: $dark !important;
+		border-width: 0.1rem !important;
+		border-color: $darkBorder !important;
+		border-radius: 0.35rem !important;
+		padding: 1.3rem 2.9rem !important;
+		width: 100% !important;
+		box-shadow: 0 0 0 2.3px $darkErrorRed !important;
+	}
+
+	.flag-dropdown {
+		background-color: $dark !important;
+		border-color: $darkBorder !important;
+		border-width: 0.1rem !important;
+		box-shadow: 0 0 0 2.3px $darkErrorRed !important;
+
+		.selected-flag {
+			height: 100% !important;
+			background-color: $dark !important;
+
+			div {
+				&:hover {
+					background-color: $darker !important;
+				}
+				&:focus {
+					background-color: $darker !important;
+				}
+			}
+		}
+
+		.country-list {
+			li {
+				background-color: $dark !important;
+				&:hover {
+					background-color: $darkBorder !important;
+					transition: ease 0.2s;
+				}
+			}
+		}
+	}
+}

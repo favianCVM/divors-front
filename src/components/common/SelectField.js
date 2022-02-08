@@ -44,7 +44,11 @@ const SelectTest = ({
 						value={options.find((el) => el.value === field.value) || null}
 						{...props}
 					/>
-					<FormHelperText>{helperText}</FormHelperText>
+					<FormHelperText>
+						{getIn(form.errors, name) && getIn(form.touched, name)
+							? form.errors[name]
+							: helperText}
+					</FormHelperText>
 				</FormControl>
 			)}
 		</Field>

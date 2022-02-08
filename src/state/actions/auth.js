@@ -6,11 +6,11 @@ export function logIn(data) {
 	return async (dispatch) => {
 		return requests
 			.logIn(formatFormData(data))
-			.then(async (r) => {
+			.then(async (res) => {
 				await dispatch({
 					type: SIGN_IN,
 					payload: {
-						...r.data
+						...res.data
 					}
 				});
 				return {
@@ -73,6 +73,28 @@ export function checkSessionState() {
 					title: e.response?.data?.message || 'Session caducada.',
 					success: false,
 					status: 'error'
+				};
+			});
+	};
+}
+
+export function signUp(data) {
+	return async (dispatch) => {
+		return requests
+			.signUp(formatFormData(data))
+			.then(async (res) => {
+				return {
+					title: 'Registro exitoso',
+					success: true,
+					status: 'success'
+				};
+			})
+			.catch((e) => {
+				return {
+					title: e.response?.data?.message || 'Hubo un problema en el sign up.',
+					success: false,
+					status: 'error',
+					description: 'Intente de nuevo'
 				};
 			});
 	};

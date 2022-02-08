@@ -1,38 +1,25 @@
-import {
-	Button,
-	Popover,
-	PopoverTrigger,
-	PopoverContent,
-	PopoverHeader,
-	PopoverBody,
-	PopoverArrow,
-	PopoverCloseButton,
-	ListItem,
-	UnorderedList,
-	Box,
-	Stack,
-	Checkbox,
-	Link,
-	useColorModeValue
-} from '@chakra-ui/react';
-import { BiSave, BiCheck } from 'react-icons/bi';
+import React from 'react';
+import { Stack, Link, Center, Text, useToast, Spinner } from '@chakra-ui/react';
+import { BiCheck } from 'react-icons/bi';
+import { TridimentionalButton } from '@components/common';
 
 const SubmitFormButton = ({
 	title = '',
 	errors = {},
 	isSubmitting = false,
-
+	isSignUp = false,
 	containerProps = {
 		textAlign: 'center',
-		width: 'full'
-	},
-	buttonProps = {
-		w: 'full',
-		bg: useColorModeValue('green.500', 'gree.200')
+		width: 'full',
+		my: 6,
+		spacing: 6
 	},
 	isLoggin = false,
 	Icon = BiCheck
 }) => {
+	const toast = useToast();
+	const toastId = 'toast-id';
+
 	const logginExtraInputs = () => (
 		<Stack
 			mt="5"
@@ -48,66 +35,51 @@ const SubmitFormButton = ({
 			<Link href="/sign-up" color={'blue.400'}>
 				Registrarse
 			</Link>
+			<Link href="/" color={'blue.400'}>
+				Volver
+			</Link>
 		</Stack>
 	);
+
+	const signUpExtraInputs = () => (
+		<Center mt="6">
+			<Text>
+				Ya posee una cuenta? &nbsp;
+				<Link href="/login" color="blue.400">
+					iniciar sesion
+				</Link>
+			</Text>
+		</Center>
+	);
+
 	return (
-		<Box {...containerProps}>
-			<Popover>
-				<PopoverTrigger>
-					<Button
-						_hover={{
-							shadow: 'lg'
-						}}
-						mx="auto"
-						mt={4}
-						px={4}
-						colorScheme="blue"
-						type="submit"
-						isLoading={isSubmitting}
-						leftIcon={<Icon />}
-						{...buttonProps}
-					>
-						{title}
-					</Button>
-				</PopoverTrigger>
-				{Object.keys(errors).length > 0 && (
-					<PopoverContent>
-						<PopoverArrow />
-						<PopoverCloseButton />
-						<PopoverHeader>Tienes errores</PopoverHeader>
-						<PopoverBody className="flex flex-col items-start">
-							<UnorderedList>
-								{Object.keys(errors).map((err) => {
-									if (Array.isArray(errors[err]))
-										return errors[err].reduce((acc, item) => {
-											let nestedErrors = Object.keys(item).map((el) => (
-												<ListItem textAlign="justify" key={item[el]}>
-													{item[el]}
-												</ListItem>
-											));
-											acc.push(nestedErrors);
-											return acc;
-										}, []);
-									else if (typeof errors[err] === 'object') {
-										return Object.keys(errors[err]).map((el) => (
-											<ListItem textAlign="justify" key={errors[err][el]}>
-												{errors[err][el]}
-											</ListItem>
-										));
-									} else
-										return (
-											<ListItem textAlign="justify" key={errors[err]}>
-												{errors[err]}
-											</ListItem>
-										);
-								})}
-							</UnorderedList>
-						</PopoverBody>
-					</PopoverContent>
-				)}
-			</Popover>
+		<Stack {...containerProps}>
+			{isSubmitting ? (
+				<Center w="full" py="1">
+					<Spinner />
+				</Center>
+			) : (
+				<TridimentionalButton
+					onClick={() => {
+						if (!toast.isActive(toastId) && Object.keys(errors).length > 0)
+							toast({
+								title: 'Por favor correguir los errores',
+								status: 'error',
+								isClosable: true,
+								duration: 1500,
+								id: toastId
+							});
+					}}
+					disabled={isSubmitting}
+					isLoading={isSubmitting}
+				>
+					{title}
+				</TridimentionalButton>
+			)}
+
 			{isLoggin && logginExtraInputs()}
-		</Box>
+			{isSignUp && signUpExtraInputs()}
+		</Stack>
 	);
 };
 

@@ -1,20 +1,15 @@
 import {
 	Flex,
 	Box,
-	FormControl,
-	FormLabel,
-	Input,
-	Checkbox,
 	Stack,
 	Link,
-	Button,
 	Heading,
 	Text,
 	useColorModeValue
 } from '@chakra-ui/react';
 import { TextField, SubmitFormButton } from '@components/common';
 import { Formik, Form } from 'formik';
-import { loginValidations } from '@utils/validations';
+import validations from '@utils/validations';
 
 export default function LoginForm({ handleSubmit }) {
 	return (
@@ -43,11 +38,11 @@ export default function LoginForm({ handleSubmit }) {
 							password: ''
 						}}
 						onSubmit={handleSubmit}
-						validate={loginValidations}
+						validationSchema={validations.loginValidations}
 					>
 						{(props) => (
 							<Form>
-								<Stack alignItems="center" spacing={5}>
+								<Stack alignItems="center" spacing={8}>
 									<TextField
 										placeholder="correo electrónico"
 										size="md"
@@ -69,6 +64,7 @@ export default function LoginForm({ handleSubmit }) {
 									/>
 
 									<SubmitFormButton
+										hiddeIcon={true}
 										isLoggin={true}
 										errors={props.errors}
 										isSubmitting={props.isSubmitting}

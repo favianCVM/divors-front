@@ -2,10 +2,9 @@ import React from 'react';
 import {
 	Box,
 	useColorModeValue,
-	Drawer,
-	DrawerContent,
 	useDisclosure,
-	useToast
+	useToast,
+	Flex
 } from '@chakra-ui/react';
 import history from '@utils/history';
 import NavbarWithHeader from '@components/layout/NavbarWithHeader';
@@ -38,29 +37,38 @@ const Layout = ({
 	};
 
 	return (
-		<Box minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
-			{isLogged && (
-				<>
-					{/* esto para mobile */}
-					<MobileDrawer userType={userType} isOpen={isOpen} onClose={onClose} />
+		<Box w="full" minH="100vh" bg={useColorModeValue('gray.100', 'gray.900')}>
+			{/* contenido del sidebar para desktop */}
 
-					{/* contenido del sidebar para desktop */}
+			{/* esto para mobile */}
+			<MobileDrawer userType={userType} isOpen={isOpen} onClose={onClose} />
+
+			{isLogged && (
+				<NavbarWithHeader
+					handleLogOut={handleLogOut}
+					userName={userName}
+					onOpen={onOpen}
+				/>
+			)}
+
+			<Flex>
+				{isLogged && (
 					<SidebarContent
 						onClose={() => onClose}
 						userType={userType}
 						display={{ base: 'none', md: 'block' }}
 					/>
+				)}
 
-					{/* header del navbar, tambien para mobile */}
-					<NavbarWithHeader
-						handleLogOut={handleLogOut}
-						userName={userName}
-						onOpen={onOpen}
-					/>
-				</>
-			)}
-
-			<Box>{children}</Box>
+				<Box
+					w={{
+						base: 'full',
+						md: isLogged ? '80%' : 'full'
+					}}
+				>
+					{children}
+				</Box>
+			</Flex>
 		</Box>
 	);
 };
