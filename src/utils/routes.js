@@ -24,5 +24,7 @@ const inventry = {
 };
 
 export default {
-	admin: [product, orders, inventry]
+	superAdmin: [],
+	admin: [product, orders, inventry],
+	common: []
 };

@@ -11,12 +11,14 @@ $darkErrorRed: #f56565;
 	width: 100% !important;
 
 	.form-control {
-		border-width: 0.1rem !important;
-		border-color: $gray !important;
+		box-shadow: 0 0 0 1px $gray !important;
+		border: none !important;
+		// border-width: 0.1rem !important;
+		// border-color: $gray !important;
 		border-radius: 0.35rem !important;
 		padding: 1.3rem 2.9rem !important;
 		width: 100% !important;
-		box-shadow: none !important;
+		// box-shadow: none !important;
 
 		&:focus + .flag-dropdown {
 			transition: ease 0.2s;
@@ -30,8 +32,12 @@ $darkErrorRed: #f56565;
 	}
 
 	.flag-dropdown {
-		border-color: $gray !important;
-		border-width: 0.1rem !important;
+		// border-color: $gray !important;
+		// border-width: 0.1rem !important;
+		box-shadow: 1px 0px 0px 0px $gray;
+		border: none !important;
+		border-radius: 0.3rem;
+		outline: none;
 		transition: ease 0.2s !important;
 
 		.selected-flag {
@@ -51,7 +57,10 @@ $darkErrorRed: #f56565;
 
 .dark-react-tel-input {
 	background-color: $dark !important;
-	border-color: $darkBorder !important;
+	// border-color: $darkBorder !important;
+	box-shadow: 0 0 0 1px $darkBorder !important;
+	border-radius: 0.3rem;
+	border: none !important;
 	width: 100% !important;
 
 	.form-control {
@@ -75,8 +84,11 @@ $darkErrorRed: #f56565;
 
 	.flag-dropdown {
 		background-color: $dark !important;
-		border-color: $darkBorder !important;
-		border-width: 0.1rem !important;
+		// border-color: $darkBorder !important;
+		// border-width: 0.1rem !important;
+		box-shadow: 1px 0px 0px 0px $darkBorder;
+		border-radius: 0.3rem;
+		border: none !important;
 		transition: ease 0.2s !important;
 
 		&:hover {

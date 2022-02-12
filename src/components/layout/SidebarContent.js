@@ -1,10 +1,7 @@
-import React from 'react';
 import {
 	Box,
 	CloseButton,
-	Flex,
 	useColorModeValue,
-	Text
 } from '@chakra-ui/react';
 import LayoutItem from '@components/layout/LayoutItem';
 import routes from '@utils/routes';
@@ -17,7 +14,7 @@ const SidebarContent = ({ onClose = () => {}, userType = '', ...props }) => {
 			bg={useColorModeValue('white', 'gray.900')}
 			borderRight="1px"
 			borderRightColor={useColorModeValue('gray.200', 'gray.700')}
-			w={{ base: 'full', md: '20%' }}
+			w={{ base: 'full', md: '20%', lg: '15%' }}
 			minH="100vh"
 			shadow={{
 				md: 'md'

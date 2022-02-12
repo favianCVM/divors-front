@@ -37,7 +37,6 @@ export default function TextField({
 			{({ field, form }) => (
 				<FormControl
 					id={id}
-					_focus={_focus}
 					boxShadow="none"
 					isInvalid={getIn(form.errors, name) && getIn(form.touched, name)}
 				>

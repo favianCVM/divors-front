@@ -6,11 +6,13 @@
 					["@", "./src"],
 					["@pages/*", "./src/pages/*"],
 					["@components/*", "./src/components/*"],
+					["@models/*", "./src/models/*"],
 					["@containers/*", "./src/containers/*"],
 					["@utils/*", "./src/utils/*"],
-					["@actions/*", "./src/redux/actions/*"],
-					["@reducers/*", "./src/redux/reducers/*"],
-					["@styles/*", "./src/styles/*"]
+					["@actions/*", "./src/state/actions/*"],
+					["@reducers/*", "./src/state/reducers/*"],
+					["@styles/*", "./src/styles/*"],
+					["@assets/*", "./src/assets/*"]
 				]
 			}
 		}

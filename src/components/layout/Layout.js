@@ -61,10 +61,15 @@ const Layout = ({
 				)}
 
 				<Box
-					w={{
-						base: 'full',
-						md: isLogged ? '80%' : 'full'
-					}}
+					w={
+						isLogged
+							? {
+									base: 'full',
+									md: '80%',
+									lg: '85%'
+							  }
+							: 'full'
+					}
 				>
 					{children}
 				</Box>

@@ -9,7 +9,7 @@ const SuspenseLoading = () => (
 			<HashLoader
 				color={LoaderStyling.color}
 				loading={true}
-				speedMultiplier={1.8}
+				// speedMultiplier={1}
 			/>
 		</Center>
 	</Center>

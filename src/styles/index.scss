@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './phoneField.scss';
+@import './phoneField.scss', './tridimentionalButton.scss', './searchBar.scss';
 
 * {
 	scrollbar-width: thin;

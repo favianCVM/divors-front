@@ -18,7 +18,12 @@ const TextareaField = ({
 	resize = 'none',
 	inputHeight = '32',
 	showError = true,
-	disabled = false
+	disabled = false,
+	_focus = {
+		borderColor: 'green.400',
+		borderWidth: 'medium',
+		boxShadow: 'none'
+	}
 }) => {
 	return (
 		<Field name={name}>
@@ -43,6 +48,7 @@ const TextareaField = ({
 							resize={resize}
 							height={inputHeight}
 							disabled={disabled}
+							_focus={_focus}
 							{...field}
 						/>
 					</InputGroup>
